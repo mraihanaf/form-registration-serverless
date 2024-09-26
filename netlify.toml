@@ -1,0 +1,15 @@
+[functions]
+  directory = "src/lambda"
+
+[[redirects]]
+    from = "/api/*"
+    to = "/.netlify/functions/:splat"
+
+[[redirects]]
+from = "/*"
+to = "/.netlify/functions/index"  
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Access-Control-Allow-Origin = "*"
