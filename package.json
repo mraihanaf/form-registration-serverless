@@ -20,7 +20,8 @@
     "prepare": "npx husky",
     "format": "npx prettier . --write",
     "dev": "npx netlify dev",
-    "test": "npx jest"
+    "test": "npx jest",
+    "test:watch": "npx jest --watch --coverage=false"
   },
   "dependencies": {
     "@netlify/functions": "^2.8.1",
