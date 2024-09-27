@@ -1,10 +1,8 @@
-import { builder, Handler } from "@netlify/functions"
+import { builder, Handler, HandlerResponse } from "@netlify/functions"
+import { buildResponse } from "../utils/response"
 
-const myHandler: Handler = async (event, context) => {
-  return {
-    statusCode: 200,
-    body: JSON.stringify({ message: "Hello World" }),
-  }
+const myHandler: Handler = async (event, context): Promise<HandlerResponse> => {
+  return buildResponse(200, "Hello World!")
 }
 
 const handler = builder(myHandler)
