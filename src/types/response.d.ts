@@ -1,4 +1,4 @@
-export enum Status {
+export const enum Status {
   OK = 200,
   Created = 202,
   NotFound = 404,
@@ -7,7 +7,7 @@ export enum Status {
   InternalError = 500,
 }
 
-export enum Method {
+export const enum Method {
   GET = "GET",
   POST = "POST",
   PUT = "PUT",
@@ -17,5 +17,5 @@ export enum Method {
 }
 
 export interface Options {
-  method: Method[] | string[]
+  method: Method[]
 }

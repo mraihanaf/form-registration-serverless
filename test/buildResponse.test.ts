@@ -1,18 +1,19 @@
+import { Method, Status } from "../src/types"
 import { buildResponse } from "../src/utils/response"
 
 describe("buildResponse Function", () => {
   it("should returns HandlerResponse", () => {
-    const response = buildResponse(200, "Hello World")
+    const response = buildResponse(Status.OK, "Hello World")
     const body = JSON.parse(response.body!)
-    expect(response.statusCode).toBe(200)
+    expect(response.statusCode).toBe(Status.OK)
     expect(response).toHaveProperty("body")
-    expect(body.statusCode).toBe(200)
+    expect(body.statusCode).toBe(Status.OK)
     expect(body.message).toBe("Hello World")
   })
 
   it("have method options", () => {
-    const response = buildResponse(200, "Hello World", null, {
-      method: ["GET"],
+    const response = buildResponse(Status.OK, "Hello World", null, {
+      method: [Method.GET],
     })
     expect(response.headers).toHaveProperty(
       "Access-Control-Allow-Methods",
@@ -25,7 +26,7 @@ describe("buildResponse Function", () => {
       foo: "bar",
       bizz: "buzz",
     }
-    const response = buildResponse(200, "Hello World!", dummy)
+    const response = buildResponse(Status.OK, "Hello World!", dummy)
     const responseBody = JSON.parse(response.body!)
     expect(responseBody.data).toMatchObject(dummy)
   })

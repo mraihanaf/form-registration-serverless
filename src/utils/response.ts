@@ -1,11 +1,11 @@
 import { HandlerResponse } from "@netlify/functions"
-import { Method, Options } from "../types"
+import { Method, Options, Status } from "../types"
 
 export function buildResponse(
-  statusCode: HandlerResponse["statusCode"],
+  statusCode: Status,
   message: string,
   data: object | any[] | null = null,
-  options: Options = { method: ["GET", "POST"] },
+  options: Options = { method: [Method.GET, Method.POST] },
 ): HandlerResponse {
   return {
     statusCode: statusCode,
