@@ -1,5 +1,4 @@
-import { Method, Status } from "../src/types"
-import { buildResponse } from "../src/utils/response"
+import { buildResponse, Method, Status } from "../src/utils/response"
 
 describe("buildResponse Function", () => {
   it("should returns HandlerResponse", () => {
