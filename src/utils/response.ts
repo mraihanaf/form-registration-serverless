@@ -22,7 +22,7 @@ export enum Method {
 export function buildResponse(
   statusCode: Status,
   message: string,
-  data: object | any[] | null = null,
+  data: { [key: string]: string } | any[] | null = null,
   options: IOptions = { method: [Method.GET, Method.POST] },
 ): HandlerResponse {
   return {
