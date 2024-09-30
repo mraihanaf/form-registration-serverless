@@ -12,6 +12,7 @@ export async function connect(): Promise<[Connection | null, unknown]> {
     await connection.asPromise()
     return [connection, null]
   } catch (error: unknown) {
+    connection = null
     return [null, error]
   }
 }
