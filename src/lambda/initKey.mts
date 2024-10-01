@@ -1,14 +1,15 @@
 import { builder, BuilderHandler, HandlerResponse } from "@netlify/functions"
-import { buildResponse, Method, Status } from "../utils/response"
+import { buildResponse, Status } from "../utils/response"
+import { randomBytes } from "crypto"
 
 const builderHandler: BuilderHandler = async (
   event,
   context,
 ): Promise<HandlerResponse> => {
-  const response = buildResponse(Status.OK, "Hello World!", null, {
-    method: [Method.GET, Method.POST],
+  const randomKey: string = randomBytes(16).toString("hex")
+  return buildResponse(Status.OK, "Successfully created an key", {
+    key: randomKey,
   })
-  return response
 }
 
 const handler = builder(builderHandler)
