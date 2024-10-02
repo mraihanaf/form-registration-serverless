@@ -15,6 +15,7 @@ export async function buildResponseBufferExcel(
       "Content-Disposition": `attachment; filename="${filename}"`,
     },
     isBase64Encoded: true,
-    body: buffer.toString(),
+    // @ts-ignore
+    body: buffer.toString("base64"),
   }
 }
